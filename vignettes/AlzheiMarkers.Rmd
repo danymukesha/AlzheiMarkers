@@ -1,10 +1,8 @@
 ---
-title: "AlzheiMarkers: An R Package for Metabolomic Biomarker Discovery and
-Classification of Alzheimer's Disease Using Machine Learning"
+title: "AlzheiMarkers: Analyzing Alzheimer's Biomarkers with Machine Learning"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{AlzheiMarkers: An R Package for Metabolomic Biomarker
-  Discovery and Classification of Alzheimer's Disease Using Machine Learning}
+  %\VignetteIndexEntry{AlzheiMarkers: Analyzing Alzheimer's Biomarkers with Machine Learning}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 

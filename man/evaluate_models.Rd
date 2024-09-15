@@ -13,5 +13,6 @@ evaluate_models(models)
 A list containing performance metrics and plots.
 }
 \description{
-This function evaluates the performance of trained models using various metrics.
+This function evaluates the performance of trained models using various
+metrics.
 }

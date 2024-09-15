@@ -9,7 +9,8 @@ split_data(prepared_data, train_ratio = 0.7)
 \arguments{
 \item{prepared_data}{List containing the prepared data from prepare_data().}
 
-\item{train_ratio}{Numeric value between 0 and 1 specifying the ratio of training data.}
+\item{train_ratio}{Numeric value between 0 and 1 specifying the ratio of
+training data.}
 }
 \value{
 A list containing the training and test datasets.

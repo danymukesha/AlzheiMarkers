@@ -7,7 +7,8 @@
 plot_variable_importance(var_imp, model_name)
 }
 \arguments{
-\item{var_imp}{Variable importance results from calculate_variable_importance().}
+\item{var_imp}{Variable importance results from
+calculate_variable_importance().}
 
 \item{model_name}{Name of the model to plot.}
 }
