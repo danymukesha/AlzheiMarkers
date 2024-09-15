@@ -1,6 +1,6 @@
 Package: AlzheiMarkers
 Title: Analyze Metabolomic Biomarkers for Alzheimer's Disease
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Dany", "Mukesha", , 
         "danymukesha@gmail.com", role = c("aut", "cre"),
@@ -15,4 +15,22 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Config/testthat/edition: 3
 Imports: 
+    caret,
+    dplyr,
+    ggplot2,
+    pROC,
+    data.table,
+    MLeval,
+    randomForest,
+    xgboost,
+    pls,
+    naivebayes,
+    precrec
+Suggests: 
+    knitr,
+    rmarkdown,
     testthat
+VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10)
+LazyData: true
