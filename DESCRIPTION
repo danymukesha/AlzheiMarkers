@@ -1,6 +1,6 @@
 Package: AlzheiMarkers
 Title: Analyze Metabolomic Biomarkers for Alzheimer's Disease
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person("Dany", "Mukesha", , 
         "danymukesha@gmail.com", role = c("aut", "cre"),

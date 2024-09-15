@@ -1,6 +1,7 @@
 #' Evaluate Model Performance
 #'
-#' This function evaluates the performance of trained models using various metrics.
+#' This function evaluates the performance of trained models using various
+#'  metrics.
 #'
 #' @param models List of trained models from train_models().
 #' @return A list containing performance metrics and plots.

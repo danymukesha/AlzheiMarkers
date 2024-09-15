@@ -11,5 +11,11 @@
 #' @importFrom data.table .SD
 #' @importFrom data.table :=
 #' @importFrom data.table data.table
+#' @importFrom randomForest randomForest
+#' @importFrom pROC roc
+#' @importFrom xgboost xgboost
+#' @import pls
+#' @import naivebayes
+#' @import precrec
 ## usethis namespace: end
 NULL

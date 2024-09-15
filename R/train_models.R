@@ -20,7 +20,7 @@ train_models <- function(train_data, n_cv = 10, n_repeat = 10) {
     summaryFunction = caret::twoClassSummary
   )
 
-  predictors <- train_data %>% dplyr::select(-Cohort)
+  predictors <- train_data |> dplyr::select(-Cohort)
   response <- train_data$Cohort
 
   models <- list(

@@ -1,0 +1,199 @@
+---
+title: "AlzheiMarkers: An R Package for Metabolomic Biomarker Discovery and
+Classification of Alzheimer's Disease Using Machine Learning"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{AlzheiMarkers: An R Package for Metabolomic Biomarker
+  Discovery and Classification of Alzheimer's Disease Using Machine Learning}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  markdown: 
+    wrap: 72
+bibliography: references.bib
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Abstract
+
+Alzheimer’s disease (AD) is a progressive neurodegenerative disorder
+that affects millions of people worldwide. Early diagnosis and
+differentiation from healthy aging remain critical challenges in the
+field. Metabolomic biomarkers present a promising avenue for addressing
+these challenges by providing insights into the metabolic changes
+associated with AD [@jia2021]. This article introduces the
+**AlzheiMarkers** R package, which facilitates the analysis and
+evaluation of metabolomic biomarkers for distinguishing Alzheimer’s
+Disease (AD) patients from Healthy Controls (HC). The package includes
+functions for data preparation, model training, evaluation, and
+visualization of biomarker importance and model performance through ROC
+curves.
+
+## Keywords
+
+Alzheimer’s Disease, Metabolomics, Biomarkers, Machine Learning, R
+Package, Random Forest, XGBoost
+
+## 1. Introduction
+
+Alzheimer’s disease (AD) is the most common cause of dementia,
+accounting for an estimated 60-80% of cases. Despite extensive research,
+AD diagnosis still relies largely on clinical evaluation and
+neuroimaging, often identifying the disease at a relatively advanced
+stage. Metabolomics, the comprehensive study of metabolites in
+biological samples, has emerged as a novel tool for biomarker discovery
+in AD. Numerous studies suggest that metabolic dysregulation plays a
+critical role in AD pathogenesis.
+
+The **AlzheiMarkers** R package was developed to support the analysis of
+metabolomic data for the discovery of potential biomarkers of
+Alzheimer’s disease. This package allows users to efficiently load and
+preprocess datasets, split data into training and testing sets, train
+machine learning models, and visualize model performance. It integrates
+widely used machine learning algorithms to distinguish AD patients from
+Healthy Controls (HC).
+
+## 2. Materials and Methods
+
+### 2.1 Package Overview
+
+The **AlzheiMarkers** package contains multiple functions that
+streamline the workflow from data preparation to model evaluation and
+visualization. The primary goals of the package are to facilitate
+metabolomic biomarker analysis and enable the exploration of
+classification models for differentiating between AD and HC samples.
+
+### 2.2 Data Preparation
+
+The first step involves data preparation, where raw data are imported
+and separated into two groups: AD patients and HC. The `prepare_data()`
+function reads in a CSV file and returns the full dataset, alongside
+separated subsets for AD and HC.
+
+```{r prepare_data, eval=FALSE}
+prepare_data <- function(file_path) {
+  data <- data.table::fread(file_path)
+  data <- as.data.frame(data)
+  HC <- dplyr::filter(data, Cohort == "HC")
+  AD <- dplyr::filter(data, Cohort == "AD")
+  
+  list(
+    data = data,
+    HC = HC,
+    AD = AD
+  )
+}
+```
+
+### 2.3 Data Splitting
+
+After the data is prepared, it is split into training and test sets
+using the `split_data()` function. This function provides flexibility in
+defining the ratio of the dataset that will be used for training.
+
+### 2.4 Model Training
+
+The **AlzheiMarkers** package supports the training of multiple machine
+learning models, including Lasso regression, Random Forest, Naive Bayes,
+Partial Least Squares (PLS), and XGBoost. Each model is trained using
+cross-validation with user-specified parameters. The `train_models()`
+function integrates the `caret` package, a powerful tool for building
+and tuning machine learning models [@kuhn2008].
+
+```{r train_models, eval=FALSE}
+train_models <- function(train_data, n_cv = 10, n_repeat = 10) {
+  set.seed(123)
+  control <- caret::trainControl(
+    method = "repeatedcv",
+    number = n_cv,
+    repeats = n_repeat,
+    classProbs = TRUE,
+    summaryFunction = caret::twoClassSummary
+  )
+  
+  predictors <- train_data %>% dplyr::select(-Cohort)
+  response <- train_data$Cohort
+  
+  models <- list(
+    lasso = caret::train(x = predictors, y = response,
+                         method = "glmnet", metric = "ROC", 
+                         trControl = control),
+    rf = caret::train(x = predictors, y = response, 
+                      method = "rf", metric = "ROC", 
+                      trControl = control),
+    nb = caret::train(x = predictors, y = response, 
+                      method = "naive_bayes", metric = "ROC", 
+                      trControl = control),
+    pls = caret::train(x = predictors, y = response, 
+                       method = "pls", metric = "ROC", 
+                       trControl = control),
+    xgb = caret::train(x = predictors, y = response, 
+                       method = "xgbTree", metric = "ROC", 
+                       trControl = control)
+  )
+  
+  models
+}
+```
+
+### 2.5 Model Evaluation and Visualization
+
+Once the models are trained, their performance can be evaluated using
+the `evaluate_models()` function, which provides various evaluation
+metrics such as Area Under the ROC Curve (AUC). In addition, the package
+includes the `plot_roc_curves()` function to visualize the ROC curves
+for each model and `plot_variable_importance()` to plot the most
+important variables driving the predictions.
+
+```{r plot+roc_curves, eval=FALSE}
+plot_roc_curves <- function(eval_results) {
+  ggplot2::ggplot(eval_results$roc, ggplot2::aes(x = 1 - Specificity, 
+                                                 y = Sensitivity, 
+                                                 color = Model)) +
+    ggplot2::geom_line() +
+    ggplot2::geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
+    ggplot2::theme_minimal() +
+    ggplot2::labs(title = "ROC Curves for Different Models")
+}
+```
+
+### 2.6 Package Vignette
+
+A vignette is provided with the package to guide users through a typical
+analysis workflow, including data preparation, model training, and
+visualization.
+
+## 3. Results
+
+Using the **AlzheimerBiomarkers** package, users can efficiently train
+and evaluate multiple machine learning models to identify potential
+biomarkers. By visualizing ROC curves, users can determine which models
+provide the highest diagnostic accuracy for distinguishing AD from HC
+samples. The variable importance plots offer insights into the most
+influential biomarkers.
+
+## 4. Discussion
+
+The **AlzheimerBiomarkers** package provides a user-friendly interface
+for conducting biomarker discovery and machine learning-based
+classification in the context of Alzheimer's Disease. While the package
+supports several common machine learning methods, it can be further
+expanded to include additional techniques and functionalities such as
+feature selection, ensemble modeling, and deep learning approaches.
+
+## 5. Conclusion
+
+The **AlzheimerBiomarkers** R package is a comprehensive tool for
+analyzing metabolomic biomarkers and differentiating AD patients from
+healthy controls using machine learning techniques. By providing
+functions for data preparation, model training, evaluation, and
+visualization, it simplifies the biomarker discovery process in
+Alzheimer's research.
+
+## 6. References

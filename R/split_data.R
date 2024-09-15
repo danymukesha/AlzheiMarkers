@@ -3,7 +3,8 @@
 #' This function splits the prepared data into training and test sets.
 #'
 #' @param prepared_data List containing the prepared data from prepare_data().
-#' @param train_ratio Numeric value between 0 and 1 specifying the ratio of training data.
+#' @param train_ratio Numeric value between 0 and 1 specifying the ratio of
+#' training data.
 #' @return A list containing the training and test datasets.
 #' @export
 #' @importFrom dplyr bind_rows sample_n
