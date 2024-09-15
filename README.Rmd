@@ -1,0 +1,46 @@
+---
+output: github_document
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# AlzhMarkers
+
+## Overview
+
+The `AlzheiMarkers` package provides tools to analyze metabolomic biomarkers 
+for distinguishing Alzheimer's Disease (AD) patients from Healthy Controls (HC).
+It offers functionalities for data preparation, machine learning model 
+training, model evaluation, and visualization of results, making it a toolkit 
+for biomarker analysis in Alzheimer's research.
+
+## Key features
+
+-   **Data preparation**: Functions to load, preprocess, and split data
+into training and test sets.
+-   **Model training**: Supports multiple machine learning models including
+Random Forest, Lasso, XGBoost, Naive Bayes, and Partial Least Squares (PLS).
+-   **Evaluation**: Model performance evaluation using ROC curves 
+and cross-validation.
+-   **Visualization**: Tools for plotting ROC curves and variable importance
+across different models.
+
+## Basic usage
+
+```{r eval=FALSE}
+library(AlzheiMarkers)
+data <- prepare_data("path/to/data.csv") # Prepare data
+split_data <- split_data(data)
+
+models <- train_models(split_data$train) # Train models
+
+eval_results <- evaluate_models(models) # Evaluate models
+plot_roc_curves(eval_results$eval_results)
+```
