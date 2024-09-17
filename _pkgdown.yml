@@ -1,4 +1,7 @@
 url: ~
 template:
   bootstrap: 5
+authors:
+    Dany Mukesha:
+        href: https://danymukesha.github.io/
 
