@@ -8,6 +8,14 @@
 \description{
 This package provides tools for analyzing metabolomic biomarkers to distinguish Alzheimer's Disease (AD) patients from Healthy Controls (HC). It includes functions for data preparation, model training, evaluation, and visualization of results.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/danymukesha/AlzheiMarkers}
+  \item Report bugs at \url{https://github.com/danymukesha/AlzheiMarkers/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Dany Mukesha \email{danymukesha@gmail.com} (\href{https://orcid.org/0009-0001-9514-751X}{ORCID})
 

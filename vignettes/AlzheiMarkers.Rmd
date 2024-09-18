@@ -44,10 +44,10 @@ Alzheimer’s disease (AD) is the most common cause of dementia,
 accounting for an estimated 60-80% of cases. Despite extensive research,
 AD diagnosis still relies largely on clinical evaluation and
 neuroimaging, often identifying the disease at a relatively advanced
-stage. Metabolomics, the comprehensive study of metabolites in
-biological samples, has emerged as a novel tool for biomarker discovery
-in AD. Numerous studies suggest that metabolic dysregulation plays a
-critical role in AD pathogenesis.
+stage. Metabolomics, the study of metabolites in biological samples, 
+has emerged as a novel tool for biomarker discovery in AD. 
+Numerous studies suggest that metabolic dysregulation plays 
+a critical role in AD pathogenesis.
 
 The **AlzheiMarkers** R package was developed to support the analysis of
 metabolomic data for the discovery of potential biomarkers of
@@ -92,8 +92,8 @@ prepare_data <- function(file_path) {
 ### 2.3 Data Splitting
 
 After the data is prepared, it is split into training and test sets
-using the `split_data()` function. This function provides flexibility in
-defining the ratio of the dataset that will be used for training.
+using the `split_data()` function. This function provides flexibility 
+in defining the ratio of the dataset that will be used for training.
 
 ### 2.4 Model Training
 
@@ -163,13 +163,13 @@ plot_roc_curves <- function(eval_results) {
 
 ### 2.6 Package Vignette
 
-A vignette is provided with the package to guide users through a typical
-analysis workflow, including data preparation, model training, and
-visualization.
+A vignette is provided with the package to guide users through 
+a typical analysis workflow, including data preparation, model training, 
+and visualization.
 
 ## 3. Results
 
-Using the **AlzheimerBiomarkers** package, users can efficiently train
+Using the **AlzheiMarkers** package, users can efficiently train
 and evaluate multiple machine learning models to identify potential
 biomarkers. By visualizing ROC curves, users can determine which models
 provide the highest diagnostic accuracy for distinguishing AD from HC
@@ -178,20 +178,19 @@ influential biomarkers.
 
 ## 4. Discussion
 
-The **AlzheimerBiomarkers** package provides a user-friendly interface
+The **AlzheMarkers** package provides a user-friendly interface
 for conducting biomarker discovery and machine learning-based
 classification in the context of Alzheimer's Disease. While the package
 supports several common machine learning methods, it can be further
 expanded to include additional techniques and functionalities such as
-feature selection, ensemble modeling, and deep learning approaches.
+`feature selection`, `ensemble modeling`, and `deep learning` approaches.
 
 ## 5. Conclusion
 
-The **AlzheimerBiomarkers** R package is a comprehensive tool for
-analyzing metabolomic biomarkers and differentiating AD patients from
-healthy controls using machine learning techniques. By providing
-functions for data preparation, model training, evaluation, and
-visualization, it simplifies the biomarker discovery process in
-Alzheimer's research.
+The **AlzheiMarkers** R package is a tool for analyzing metabolomic biomarkers
+and differentiating AD patients from healthy controls using machine learning 
+techniques. By providing functions for data preparation, model training, 
+evaluation, and visualization, it simplifies the biomarker discovery process 
+in Alzheimer's research.
 
 ## 6. References
