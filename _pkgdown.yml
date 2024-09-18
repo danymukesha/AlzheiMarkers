@@ -1,6 +1,7 @@
 url: ~
 template:
   bootstrap: 5
+  bootswatch: cerulean
 authors:
     Dany Mukesha:
         href: https://danymukesha.github.io/
