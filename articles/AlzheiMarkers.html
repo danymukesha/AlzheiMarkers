@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>AlzheiMarkers: Analyzing Alzheimer's Biomarkers with Machine Learning • AlzheiMarkers</title>
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
@@ -16,11 +16,11 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html">AlzheiMarkers</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../articles/AlzheiMarkers.html">Get started</a></li>
+<li class="active nav-item"><a class="nav-link" href="../articles/AlzheiMarkers.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -37,6 +37,14 @@
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/danymukesha/AlzheiMarkers/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -53,7 +61,7 @@
       <h1>AlzheiMarkers: Analyzing Alzheimer's Biomarkers with Machine Learning</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/danymukesha/AlzheiMarkers/blob/HEAD/vignettes/AlzheiMarkers.Rmd" class="external-link"><code>vignettes/AlzheiMarkers.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/danymukesha/AlzheiMarkers/blob/main/vignettes/AlzheiMarkers.Rmd" class="external-link"><code>vignettes/AlzheiMarkers.Rmd</code></a></small>
       <div class="d-none name"><code>AlzheiMarkers.Rmd</code></div>
     </div>
 
@@ -88,10 +96,10 @@ Package, Random Forest, XGBoost</p>
 accounting for an estimated 60-80% of cases. Despite extensive research,
 AD diagnosis still relies largely on clinical evaluation and
 neuroimaging, often identifying the disease at a relatively advanced
-stage. Metabolomics, the comprehensive study of metabolites in
-biological samples, has emerged as a novel tool for biomarker discovery
-in AD. Numerous studies suggest that metabolic dysregulation plays a
-critical role in AD pathogenesis.</p>
+stage. Metabolomics, the study of metabolites in biological samples, has
+emerged as a novel tool for biomarker discovery in AD. Numerous studies
+suggest that metabolic dysregulation plays a critical role in AD
+pathogenesis.</p>
 <p>The <strong>AlzheiMarkers</strong> R package was developed to support
 the analysis of metabolomic data for the discovery of potential
 biomarkers of Alzheimer’s disease. This package allows users to
@@ -218,7 +226,7 @@ and visualization.</p>
 <div class="section level2">
 <h2 id="results">3. Results<a class="anchor" aria-label="anchor" href="#results"></a>
 </h2>
-<p>Using the <strong>AlzheimerBiomarkers</strong> package, users can
+<p>Using the <strong>AlzheiMarkers</strong> package, users can
 efficiently train and evaluate multiple machine learning models to
 identify potential biomarkers. By visualizing ROC curves, users can
 determine which models provide the highest diagnostic accuracy for
@@ -228,23 +236,22 @@ insights into the most influential biomarkers.</p>
 <div class="section level2">
 <h2 id="discussion">4. Discussion<a class="anchor" aria-label="anchor" href="#discussion"></a>
 </h2>
-<p>The <strong>AlzheimerBiomarkers</strong> package provides a
-user-friendly interface for conducting biomarker discovery and machine
-learning-based classification in the context of Alzheimer’s Disease.
-While the package supports several common machine learning methods, it
-can be further expanded to include additional techniques and
-functionalities such as feature selection, ensemble modeling, and deep
-learning approaches.</p>
+<p>The <strong>AlzheMarkers</strong> package provides a user-friendly
+interface for conducting biomarker discovery and machine learning-based
+classification in the context of Alzheimer’s Disease. While the package
+supports several common machine learning methods, it can be further
+expanded to include additional techniques and functionalities such as
+<code>feature selection</code>, <code>ensemble modeling</code>, and
+<code>deep learning</code> approaches.</p>
 </div>
 <div class="section level2">
 <h2 id="conclusion">5. Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
 </h2>
-<p>The <strong>AlzheimerBiomarkers</strong> R package is a comprehensive
-tool for analyzing metabolomic biomarkers and differentiating AD
-patients from healthy controls using machine learning techniques. By
-providing functions for data preparation, model training, evaluation,
-and visualization, it simplifies the biomarker discovery process in
-Alzheimer’s research.</p>
+<p>The <strong>AlzheiMarkers</strong> R package is a tool for analyzing
+metabolomic biomarkers and differentiating AD patients from healthy
+controls using machine learning techniques. By providing functions for
+data preparation, model training, evaluation, and visualization, it
+simplifies the biomarker discovery process in Alzheimer’s research.</p>
 </div>
 <div class="section level2 unnumbered">
 <h2 class="unnumbered" id="references">6. References<a class="anchor" aria-label="anchor" href="#references"></a>
@@ -275,7 +282,7 @@ Statistical Software</em> 28 (5). <a href="https://doi.org/10.18637/jss.v028.i05
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>
