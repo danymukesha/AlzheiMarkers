@@ -1,7 +1,10 @@
-url: ~
+url: https://danymukesha.github.io/AlzheiMarkers/
 template:
   bootstrap: 5
-  bootswatch: cerulean
+  light-switch: true
+  bslib:
+    bootswatch: united
+    pkgdown-navbar-bg: '#e95420'
 authors:
     Dany Mukesha:
         href: https://danymukesha.github.io/
