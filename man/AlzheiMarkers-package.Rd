@@ -11,7 +11,7 @@ This package provides tools for analyzing metabolomic biomarkers to distinguish 
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/danymukesha/AlzheiMarkers}
+  \item \url{https://github.com/danymukesha/AlzheiMarkers; https://danymukesha.github.io/AlzheiMarkers/}
   \item Report bugs at \url{https://github.com/danymukesha/AlzheiMarkers/issues}
 }
 
